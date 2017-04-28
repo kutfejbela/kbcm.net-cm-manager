@@ -1,0 +1,8 @@
+#!/bin/bash
+
+GLOBAL_PACKAGES_CONFIG_FILES=$(collect_dir_list_configfiles "$SHELL_HOST" "$CONFIG_FOLDER_MANAGEMENT" services)
+
+collect_configfiles_list_entries "$GLOBAL_PACKAGES_CONFIG_FILES" "service-enable"
+collect_configfiles_list_entries "$GLOBAL_PACKAGES_CONFIG_FILES" "service-disable"
+collect_configfiles_list_entries "$GLOBAL_PACKAGES_CONFIG_FILES" "service-run"
+collect_configfiles_list_entries "$GLOBAL_PACKAGES_CONFIG_FILES" "service-stop"
