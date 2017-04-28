@@ -1,6 +1,10 @@
 # kbcm.net-cm-manager
 kbcom.net Central Management: Manager
 
+Programing:
+- Only in Bash: because most of Linux Adminstrators know this Language
+- Variables begin with: CONFIG_, SHELL_, GLOBAL_ and LOCAL_
+
 Features:
 - Purge, install packages and activate triggers
 - Stop, start services and activate triggers
