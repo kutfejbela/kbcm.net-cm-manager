@@ -1,3 +1,5 @@
+#!/bin/bash
+
 GLOBAL_PACKAGES_CONFIG_FILES=$(collect_dir_list_configfiles "$SHELL_HOST" "$CONFIG_FOLDER_MANAGEMENT" packages)
 GLOBAL_PACKAGES_PURGE=$(collect_configfiles_list_entries "$GLOBAL_PACKAGES_CONFIG_FILES" "package-purge")
 GLOBAL_PACKAGES_INSTALL=$(collect_configfiles_list_entries "$GLOBAL_PACKAGES_CONFIG_FILES" "package-install")
