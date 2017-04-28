@@ -2,7 +2,7 @@
 kbcom.net Central Management: Manager
 
 Programing:
-- Only in Bash: because most of Linux Adminstrators know this Language
+- Only in Bash: because most of Linux Administrators know this Language
 - Variables begin with: CONFIG_, SHELL_, GLOBAL_ and LOCAL_
 
 Features:
