@@ -1,0 +1,16 @@
+GLOBAL_PACKAGES_CONFIG_FILES=$(collect_dir_list_configfiles "$SHELL_HOST" "$CONFIG_FOLDER_MANAGEMENT" packages)
+GLOBAL_PACKAGES_PURGE=$(collect_configfiles_list_entries "$GLOBAL_PACKAGES_CONFIG_FILES" "package-purge")
+GLOBAL_PACKAGES_INSTALL=$(collect_configfiles_list_entries "$GLOBAL_PACKAGES_CONFIG_FILES" "package-install")
+
+GLOBAL_PACKAGES_SAME=$(collect_list_list_sameentries "$GLOBAL_PACKAGES_PURGE" "$GLOBAL_PACKAGES_INSTALL")
+
+if [ ! -z "$GLOBAL_PACKAGES_SAME" ]
+then
+ echo "ERROR"
+ collect_config_entries_entries "$GLOBAL_PACKAGES_CONFIG_FILES" "package-purge" "package-install" "$GLOBAL_PACKAGES_SAME"
+ exit 1
+fi
+
+echo "OK"
+echo $GLOBAL_PACKAGES_PURGE
+echo $GLOBAL_PACKAGES_INSTALL
