@@ -7,7 +7,8 @@ GLOBAL_PACKAGES_SAME=$(collect_list_list_sameentries "$GLOBAL_PACKAGES_PURGE" "$
 if [ ! -z "$GLOBAL_PACKAGES_SAME" ]
 then
  echo "ERROR"
- collect_config_entries_entries "$GLOBAL_PACKAGES_CONFIG_FILES" "package-purge" "package-install" "$GLOBAL_PACKAGES_SAME"
+ collect_configfiles_list_fullentries "$GLOBAL_PACKAGES_CONFIG_FILES" "package-purge" "$GLOBAL_PACKAGES_SAME"
+ collect_configfiles_list_fullentries "$GLOBAL_PACKAGES_CONFIG_FILES" "package-install" "$GLOBAL_PACKAGES_SAME"
  exit 1
 fi
 
