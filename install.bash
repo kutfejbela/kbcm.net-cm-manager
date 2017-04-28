@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # /etc
 /bin/mkdir -p "/etc/kbnet.com-cm/manager-server"
 
