@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo "Content-type: application/octet-stream"
-echo
+/bin/echo "Content-type: application/octet-stream"
+/bin/echo
 
 
 shell_get_value()
@@ -11,14 +11,16 @@ shell_get_value()
 }
 
 
-SHELL_CONFIG_USR_SHARE="/usr/share/kbcom.net-cm/management-server"
+CONFIG_FOLDER_MANAGER_CONFIG="/etc/kbcom.net-cm/manager-server"
+SHELL_CONFIG_USR_SHARE="/usr/share/kbcom.net-cm/manager-server"
 
-SHELL_GET_HOST="hostname from apache"
+SHELL_GET_HOST=$(/bin/echo $SSL_CLIENT_S_DN_CN | /bin/grep -oE '[^ ]+$')
 SHELL_GET_TYPE=$(shell_get_value type)
+
 
 case "$SHELL_GET_TYPE" in
 packages)
- "$SHELL_CONFIG_USR_SHARE/management.bash" "$SHELL_GET_HOST" "$SHELL_GET_TYPE"
+ "$SHELL_CONFIG_USR_SHARE/kbcom.net-cm-manager-server-packages.bash" "$CONFIG_FOLDER_MANAGER_CONFIG" "$SHELL_GET_HOST"
  ;;
 *)
  env
