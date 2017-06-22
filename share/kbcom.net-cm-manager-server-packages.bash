@@ -18,11 +18,12 @@ GLOBAL_PACKAGES_INSTALL=$(collect_configfiles_list_entries "$GLOBAL_PACKAGES_CON
 
 
 GLOBAL_PACKAGES_SAME=$(collect_list_list_sameentries "$GLOBAL_PACKAGES_PURGE" "$GLOBAL_PACKAGES_INSTALL")
+[ $? -eq 0 ] || { /bin/echo $GLOBAL_PACKAGES_SAME; exit 1; }
+
 
 if [ ! -z "$GLOBAL_PACKAGES_SAME" ]
 then
  /bin/echo "ERROR"
-echo "_ $GLOBAL_HOSTNAME_CLIENT _"
  collect_configfiles_list_fullentries "$GLOBAL_PACKAGES_CONFIG_FILES" "package-purge" "$GLOBAL_PACKAGES_SAME"
  collect_configfiles_list_fullentries "$GLOBAL_PACKAGES_CONFIG_FILES" "package-install" "$GLOBAL_PACKAGES_SAME"
  exit 1
